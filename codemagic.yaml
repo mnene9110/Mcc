@@ -1,0 +1,14 @@
+workflows:
+  android-build:
+    name: MCC Android Build
+
+    environment:
+      node: 18
+      java: 11
+
+    scripts:
+      - npm install
+      - cd android && ./gradlew assembleRelease
+
+    artifacts:
+      - android/app/build/outputs/**/*.apk
